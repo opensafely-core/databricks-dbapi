@@ -1,3 +1,18 @@
+Opensafely fork of databricks-api package
+=========================================
+
+This package is forked for the sole reason to change the default dependencies.
+
+The upstream dependencies are hardcoded and problematic for us, in that they
+depend on `pyive[hive]` explicitly, which pulls in `sasl`, which is hard to
+install and not a hard requirement, and `pyodbc`, which we do not want as we
+are using `pyhive`
+
+So this fork alters the dependencies to a) just be the more minimal `[pyhive,
+thift]`, not `pyhive[hive]` and b) make `pyodbc` and `pyhive` optional extras
+so you can choose between them.
+
+
 databricks-dbapi
 ================
 
